@@ -1,0 +1,15 @@
+<div class=" h-20 bg-teal-700 flex items-center justify-between px-6">
+  <img src="assets/ecobook.jpg" alt="logo"  class="h-full max-h-16 object-contain">
+  <h1> Biblio Angular</h1>
+  <div class="flex items-center gap-2 text-white">
+    <i class="pi pi-user"></i>
+    <span>{{ testCom() }}</span>
+    <p-button
+      [rounded]="true"
+      [icon]="isModeSombre ? 'pi pi-moon' : 'pi pi-sun'"
+      (onClick)="toggleDarkMode()"
+      class="theme-button">
+    </p-button>
+  </div>
+</div>
+
