@@ -1,7 +1,7 @@
 .app-container{
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 222px);
+  height: calc(100vh - 158px);
   padding: 1rem;
   background-color: rgb(89 170 143 / 0.34);
   overflow: auto;

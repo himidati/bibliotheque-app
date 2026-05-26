@@ -1,0 +1,71 @@
+<form [formGroup]="bookForm()" (submit)="submitForm()" class="book-form-container">
+
+  <div class="form-grid">
+    <div class="form-field">
+      <label for="title">Titre *</label>
+      <input pInputText id="title" formControlName="title" placeholder="Ex: Le Petit Prince" />
+      @if(bookForm().get('title').invalid && (bookForm().touched ||  bookForm().dirty)){
+        <span class="italic text-red-500">Le champ est obligatoire</span>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="author">Auteur *</label>
+      <input pInputText id="author" formControlName="author" placeholder="Ex: Antoine de Saint-Exupéry" />
+      @if(bookForm().get('author').invalid && (bookForm().touched ||  bookForm().dirty)){
+        <span class="italic text-red-500">Le champ est obligatoire</span>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="isbn">ISBN (Nombre)</label>
+      <p-inputNumber id="isbn" formControlName="isbn" [useGrouping]="false" placeholder="Ex: 9782070612758" />
+    </div>
+
+    <div class="form-field">
+      <label for="publisher">Éditeur</label>
+      <input pInputText id="publisher" formControlName="publisher" placeholder="Ex: Gallimard" />
+    </div>
+
+    <div class="form-field">
+      <label for="category">Catégorie</label>
+      <input pInputText id="category" formControlName="category" placeholder="Ex: Roman, Fantastique" />
+    </div>
+
+    <div class="form-field">
+      <label for="language">Langue</label>
+      <input pInputText id="language" formControlName="language" placeholder="Ex: Français" />
+    </div>
+
+    <div class="form-field">
+      <label for="pages">Nombre de pages</label>
+      <p-inputNumber id="pages" formControlName="pages" [min]="1" placeholder="Ex: 96" />
+    </div>
+
+    <div class="form-field">
+      <label for="rating">Note (sur 5)</label>
+      <p-inputNumber id="rating" formControlName="rating" [min]="0" [max]="5" [maxFractionDigits]="1" placeholder="Ex: 4.5" />
+    </div>
+
+    <div class="form-field">
+      <label for="publicationDate">Date de publication</label>
+      <input pInputText type="date" id="publicationDate" formControlName="publicationDate" />
+    </div>
+
+    <div class="form-field toggle-field">
+      <label for="available">Disponibilité</label>
+      <p-toggleButton id="available" formControlName="available" onLabel="Disponible" offLabel="Emprunté" />
+    </div>
+  </div>
+
+  <div class="form-field full-width">
+    <label for="description">Description / Résumé</label>
+    <textarea pInputTextarea id="description" formControlName="description" rows="4" placeholder="Résumé du livre..."></textarea>
+  </div>
+
+  <div  class="flex justify-between w_full pt-2">
+    <p-button type="button" label="Annuler" severity="secondary" (click)="onCancel()" />
+    <p-button type="submit" label="Enregistrer" severity="success" />
+  </div>
+
+</form>

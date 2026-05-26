@@ -8,6 +8,11 @@ export const routes: Routes = [
     component: DashboardPage
   },
   {
+    path: 'books',
+    loadChildren: () =>
+      import('./features/books/book.routes').then((rte)=>rte.booksRoutes),
+  },
+  {
     path: '',
     component: DashboardPage
   },
