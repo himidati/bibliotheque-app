@@ -1,0 +1,29 @@
+<div class="book-detail-container">
+  @if(isLoading()){
+    <app-global-spinner/>
+  }
+
+  @if(error()){
+    <p>{{ error() }}</p>
+  }
+
+  @if(displayBook()){
+    <div class="book-details">
+      <div class="flex items-center gap-2">
+        <img src="/assets/ecobook.jpg" alt="logo" width="200">
+        <div class="infosLivre">
+          <h1 class="font-bold">{{ displayBook().title }}</h1>
+          <h2>{{ displayBook().author }}</h2>
+          <h3>édité par {{ displayBook().publisher }} - paru en {{ displayBook().publicationDate }}</h3>
+          <div>
+            <p>{{ displayBook().description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if(!isLoading() && !displayBook() && !error()){
+    <p>Livre introuvable</p>
+  }
+</div>
